@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置环境变量文件路径
-ENV_FILE="$HOME/set_env.sh"
+ENV_FILE="$(dirname "$0")/set_env.sh"
 
 # 从环境变量设置文件读取环境变量
 source "$ENV_FILE"
@@ -13,7 +13,7 @@ if [[ -z "$DINGTALK_WEBHOOK_URL" || -z "$DINGTALK_SECRET" || -z "$SERVER_NAME" |
 fi
 
 # 日志文件路径
-LOG_FILE="/root/monitor.log"
+LOG_FILE="/root/quili-dingtalk/monitor.log"
 
 # 计算签名
 calculate_signature() {
@@ -73,3 +73,4 @@ while true; do
     # 等待设定的时间
     sleep "$LOOP_INTERVAL"
 done
+
